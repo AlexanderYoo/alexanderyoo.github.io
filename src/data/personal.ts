@@ -47,10 +47,5 @@ export const PERSONAL_INFO = {
             label: "Email",
             icon: "lucide:mail",
         },
-        {
-            href: "tel:+17076579248",
-            label: "Phone",
-            icon: "lucide:phone",
-        },
     ],
 };
