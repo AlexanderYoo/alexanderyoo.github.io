@@ -10,6 +10,7 @@ import { NAVIGATION_DATA } from "../../data/navigation";
   <!-- Navbar -->
   <nav
     class="fixed top-0 left-0 w-full z-50 bg-gray-950/20 backdrop-blur-md border-b border-white/10"
+    aria-label="Main navigation"
   >
     <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
       <a href="/" class="flex items-center">
@@ -24,7 +25,7 @@ import { NAVIGATION_DATA } from "../../data/navigation";
               <li>
                 <a
                   href={item.href}
-                  class="relative group text-white font-bold transition-colors duration-300 hover:text-secondary"
+                  class="relative group text-white font-bold transition-colors duration-150 hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm"
                   ><span
                     class="absolute left-0 -bottom-2 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"
                   ></span>{item.label}</a
@@ -37,13 +38,16 @@ import { NAVIGATION_DATA } from "../../data/navigation";
       <!-- Botón hamburguesa móvil -->
       <label
         for="menu-toggle"
-        class="md:hidden cursor-pointer z-50 flex items-center"
+        class="md:hidden cursor-pointer z-50 flex items-center rounded-sm focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary"
+        aria-label="Toggle navigation menu"
+        aria-controls="mobile-menu"
       >
         <svg
           class="h-6 w-6 text-white peer-checked:hidden"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          aria-hidden="true"
         >
           <path
             stroke-linecap="round"
@@ -56,6 +60,7 @@ import { NAVIGATION_DATA } from "../../data/navigation";
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          aria-hidden="true"
         >
           <path
             stroke-linecap="round"
@@ -75,32 +80,28 @@ import { NAVIGATION_DATA } from "../../data/navigation";
 
   <!-- Sidebar sólido móvil -->
   <div
-    class="fixed top-0 right-0 h-full w-64 bg-gray-900 shadow-lg transform translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-60"
+    id="mobile-menu"
+    class="fixed top-0 right-0 h-full w-64 bg-gray-900 shadow-lg transform translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-50"
   >
     <ul class="flex flex-col space-y-6 mt-10 ml-6">
-      <li>
-        <a
-          href="#home"
-          class="text-white text-lg font-bold hover:text-secondary">Home</a
-        >
-      </li>
-      <li>
-        <a
-          href="#about"
-          class="text-white text-lg font-bold hover:text-secondary">About</a
-        >
-      </li>
-      <li>
-        <a
-          href="#projects"
-          class="text-white text-lg font-bold hover:text-secondary">Projects</a
-        >
-      </li>
+      {
+        NAVIGATION_DATA.navigationMenu.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="text-white text-lg font-bold hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm"
+              onclick="document.getElementById('menu-toggle').checked = false"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
       <li>
         <a
           href="#contact"
-          class="px-6 py-3 bg-primary hover:bg-secondary text-white font-semibold rounded-3xl transition-all duration-150
-         drop-shadow-[2px_2px_0_#0debd8] active:translate-0.5 active:drop-shadow-none"
+          class="inline-block px-6 py-3 bg-primary hover:bg-secondary text-white font-semibold rounded-3xl transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
+          onclick="document.getElementById('menu-toggle').checked = false"
         >
           Contact me
         </a>

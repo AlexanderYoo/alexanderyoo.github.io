@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import { PERSONAL_INFO } from "../../data/personal";
 ---
 
 <footer class="py-12 border-t border-white/5 bg-gray-950/50 backdrop-blur-sm">
@@ -7,8 +8,8 @@ import { Icon } from "astro-icon/components";
         class="max-w-7xl mx-auto px-6 flex flex-row items-center justify-center gap-4 text-center"
     >
         <p class="text-gray-400 text-sm md:text-base">
-            Created by <span class="text-white font-medium italic"
-                >Alex Yoo</span
+            Built by <span class="text-white font-medium italic"
+                >{PERSONAL_INFO.name}</span
             >
         </p>
 
@@ -16,8 +17,8 @@ import { Icon } from "astro-icon/components";
             href="https://github.com/AlexanderYoo"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-400 hover:text-primary transition-all duration-300 hover:scale-110 active:scale-95"
-            aria-label="Alex Yoo's GitHub"
+            class="text-gray-400 hover:text-primary transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-sm"
+            aria-label={`${PERSONAL_INFO.name}'s GitHub`}
         >
             <Icon name="lucide:github" class="size-6" />
         </a>

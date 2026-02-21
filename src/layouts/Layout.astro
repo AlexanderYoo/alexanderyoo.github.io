@@ -3,7 +3,13 @@ import "../styles/global.css";
 import Navbar from "../components/Navbar/NavBar.astro";
 import Footer from "../components/Footer/Footer.astro";
 import Background from "../components/UI/Background.astro";
+import { PERSONAL_INFO } from "../data/personal";
 import "aos/dist/aos.css";
+
+const pageTitle = `${PERSONAL_INFO.name} | ${PERSONAL_INFO.role}`;
+const pageDescription = PERSONAL_INFO.shortDescription;
+const canonicalUrl = PERSONAL_INFO.siteUrl;
+const ogImage = `${PERSONAL_INFO.siteUrl}/images/alex-yoo.png`;
 ---
 
 <!doctype html>
@@ -12,8 +18,41 @@ import "aos/dist/aos.css";
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href={canonicalUrl} />
+		<meta name="description" content={pageDescription} />
+		<meta name="robots" content="index, follow" />
+		<meta name="theme-color" content="#0a0a0a" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={pageDescription} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:locale" content="en_US" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={pageDescription} />
+		<meta name="twitter:image" content={ogImage} />
 		<meta name="generator" content={Astro.generator} />
-		<title>YooCodes</title>
+		<title>{pageTitle}</title>
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "Person",
+				name: PERSONAL_INFO.name,
+				jobTitle: PERSONAL_INFO.role,
+				email: PERSONAL_INFO.email,
+				telephone: PERSONAL_INFO.phone,
+				url: PERSONAL_INFO.siteUrl,
+				sameAs: PERSONAL_INFO.socialLinks.map((link) => link.href),
+				address: {
+					"@type": "PostalAddress",
+					addressLocality: "Santa Rosa",
+					addressRegion: "CA",
+					addressCountry: "US",
+				},
+			})}
+		/>
 	</head>
 	<body class="text-white">
 		<Background />
@@ -46,10 +85,12 @@ import "aos/dist/aos.css";
 		<script>
 			import AOS from "aos";
 			AOS.init({
-				duration: 2000,
-				easing: "ease-out-cubic",
+				duration: 700,
+				easing: "ease-out",
 				once: true,
 				offset: 100,
+				disable: window.matchMedia("(prefers-reduced-motion: reduce)")
+					.matches,
 			});
 		</script>
 	</body>

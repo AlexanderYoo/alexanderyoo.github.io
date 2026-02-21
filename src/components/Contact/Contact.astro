@@ -1,17 +1,20 @@
 ---
 import { PERSONAL_INFO } from "../../data/personal";
 import Section from "../UI/Section.astro";
-import Title from "../UI/Title.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <Section id="contact" title="Get in Touch" titleClassName="mb-8">
     <p
-        class="text-xl text-gray-400 mb-16 text-center max-w-2xl font-light"
+        class="text-xl text-gray-200 mb-6 text-center max-w-2xl font-light text-pretty"
         data-aos="fade-up"
         data-aos-delay="200"
     >
-        I'm always open to discussing new projects, creative ideas or
-        opportunities to be part of your visions.
+        I am always open to discussing backend engineering opportunities,
+        distributed systems work, and platform reliability challenges.
+    </p>
+    <p class="text-lg text-gray-300 mb-12 text-center font-medium" data-aos="fade-up" data-aos-delay="260">
+        {PERSONAL_INFO.location}
     </p>
 
     <!-- Links -->
@@ -25,10 +28,15 @@ import Title from "../UI/Title.astro";
                 PERSONAL_INFO.socialLinks.map((link) => (
                     <a
                         href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="block font-bold w-full rounded-xl bg-[#3678cf] hover:bg-[#214b81] drop-shadow-[5px_5px_0_#214b81] px-6 py-4 text-center text-white"
+                        target={link.href.startsWith("mailto:") || link.href.startsWith("tel:")
+                            ? undefined
+                            : "_blank"}
+                        rel={link.href.startsWith("mailto:") || link.href.startsWith("tel:")
+                            ? undefined
+                            : "noopener noreferrer"}
+                        class="flex items-center justify-center gap-3 font-bold w-full rounded-xl bg-[#3678cf] hover:bg-[#214b81] px-6 py-4 text-center text-white transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
                     >
+                        <Icon name={link.icon} class="size-5" />
                         {link.label}
                     </a>
                 ))
