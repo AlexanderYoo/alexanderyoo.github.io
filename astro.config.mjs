@@ -5,7 +5,7 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://yoocode.com',
+  site: 'https://AlexanderYoo.github.io',
   base: '/yoo-code',
   integrations: [icon()],
   vite: {
