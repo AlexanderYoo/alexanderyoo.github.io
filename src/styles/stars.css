@@ -95,3 +95,16 @@
         transform: translateY(-5000px);
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    #stars,
+    #stars2,
+    #stars3,
+    #stars4,
+    #stars:after,
+    #stars2:after,
+    #stars3:after,
+    #stars4:after {
+        animation: none;
+    }
+}

@@ -19,6 +19,7 @@ const {
 } = Astro.props;
 const canonicalUrl = new URL(canonicalPath, PERSONAL_INFO.siteUrl).toString();
 const ogImage = `${PERSONAL_INFO.siteUrl}/images/alex-yoo.png`;
+const ogImageAlt = `${PERSONAL_INFO.name} portrait`;
 ---
 
 <!doctype html>
@@ -32,15 +33,20 @@ const ogImage = `${PERSONAL_INFO.siteUrl}/images/alex-yoo.png`;
 		<meta name="robots" content="index, follow" />
 		<meta name="theme-color" content="#0a0a0a" />
 		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content={PERSONAL_INFO.brand} />
 		<meta property="og:title" content={pageTitle} />
 		<meta property="og:description" content={pageDescription} />
 		<meta property="og:url" content={canonicalUrl} />
 		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:alt" content={ogImageAlt} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
 		<meta property="og:locale" content="en_US" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={pageTitle} />
 		<meta name="twitter:description" content={pageDescription} />
 		<meta name="twitter:image" content={ogImage} />
+		<meta name="twitter:image:alt" content={ogImageAlt} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 		<script
@@ -74,7 +80,7 @@ const ogImage = `${PERSONAL_INFO.siteUrl}/images/alex-yoo.png`;
 				overflow-x: hidden;
 			}
 			html {
-				font-family: system-ui, sans-serif;
+				font-family: var(--font-code-pro);
 				scroll-behavior: smooth;
 			}
 

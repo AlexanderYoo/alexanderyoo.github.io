@@ -1,4 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&display=swap");
 @import "tailwindcss";
+
+:root {
+  --font-poppins-bold: "Poppins-Bold", "Poppins", system-ui, sans-serif;
+  --font-code-pro: "Code-Pro", "Code Pro", "Source Code Pro", system-ui, sans-serif;
+}
+
+html {
+  font-family: var(--font-code-pro);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-poppins-bold);
+  font-weight: 700;
+}
+
+nav,
+nav a,
+nav h1,
+nav h2,
+nav h3,
+nav h4,
+nav h5,
+nav h6,
+nav li,
+nav span,
+nav label,
+nav button {
+  font-family: var(--font-poppins-bold);
+  font-weight: 700;
+}
 
 
 .primary {
@@ -11,7 +48,7 @@
   background-color: #3F8C9F;
 }
 .bg-secondary {
-  background-color: #214b81;
+  background-color: #B3D3FE;
 }
 .text-primary {
   color: #3F8C9F;

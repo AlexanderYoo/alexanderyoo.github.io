@@ -26,7 +26,7 @@ const nonEmailLinks =
         data-aos="fade-up"
         data-aos-delay="320"
     >
-        <input type="hidden" name="_captcha" value="false" />
+        <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
         <input type="hidden" name="_subject" value="New portfolio contact form submission" />
         <input type="hidden" name="_template" value="table" />
 
@@ -38,7 +38,7 @@ const nonEmailLinks =
                 type="text"
                 required
                 autocomplete="name"
-                class="w-full rounded-lg border border-white/20 bg-black/20 px-4 py-3 text-white placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3678cf]"
+                class="w-full rounded-lg border border-white/20 bg-black/20 px-4 py-3 text-white placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B3D3FE]"
                 placeholder="Your name"
             />
         </div>
@@ -51,7 +51,7 @@ const nonEmailLinks =
                 type="email"
                 required
                 autocomplete="email"
-                class="w-full rounded-lg border border-white/20 bg-black/20 px-4 py-3 text-white placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3678cf]"
+                class="w-full rounded-lg border border-white/20 bg-black/20 px-4 py-3 text-white placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B3D3FE]"
                 placeholder="you@example.com"
             />
         </div>
@@ -63,14 +63,14 @@ const nonEmailLinks =
                 name="message"
                 required
                 rows="5"
-                class="w-full rounded-lg border border-white/20 bg-black/20 px-4 py-3 text-white placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3678cf]"
+                class="w-full rounded-lg border border-white/20 bg-black/20 px-4 py-3 text-white placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B3D3FE]"
                 placeholder="Tell me about your project or opportunity"
             />
         </div>
 
         <button
             type="submit"
-            class="w-full rounded-xl bg-[#3678cf] px-6 py-4 text-center font-bold text-white transition-colors duration-150 hover:bg-[#214b81] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#3678cf]"
+            class="w-full rounded-xl bg-[#3F8C9F] px-6 py-4 text-center font-bold text-white transition-colors duration-150 hover:bg-[#B3D3FE] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#B3D3FE]"
         >
             Send Message
         </button>
@@ -87,7 +87,7 @@ const nonEmailLinks =
                     href={link.href}
                     target={link.href.startsWith("tel:") ? undefined : "_blank"}
                     rel={link.href.startsWith("tel:") ? undefined : "noopener noreferrer"}
-                    class="flex items-center justify-center gap-3 font-bold w-full rounded-xl bg-[#3678cf] hover:bg-[#214b81] px-6 py-4 text-center text-white transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
+                    class="flex items-center justify-center gap-3 font-bold w-full rounded-xl bg-[#3F8C9F] hover:bg-[#B3D3FE] px-6 py-4 text-center text-white transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
                 >
                     <Icon name={link.icon} class="size-5" />
                     {link.label}

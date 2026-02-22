@@ -4,7 +4,7 @@ export const PERSONAL_INFO = {
     role: "Custom Software, Built Your Way",
     location: "Santa Rosa, California, United States",
     email: "alex.yoocode@gmail.com",
-    siteUrl: "https://yoocode.com",
+    siteUrl: "https://alexanderyoo.github.io",
     resumeUrl:
         "https://www.linkedin.com/in/alexyooo/details/experience/",
     shortDescription:
